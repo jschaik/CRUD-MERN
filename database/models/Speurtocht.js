@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const SpeurtochtSchema = new mongoose.Schema({
-  speurtochtId: {
-    type: Number,
-    require: true,
-},
 vragenForm: {
     type: String,
     require: true,

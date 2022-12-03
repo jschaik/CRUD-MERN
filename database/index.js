@@ -16,14 +16,11 @@ mongoose.connect(
 );
 
 app.post('/insert', async (req, res) => {
-
-  const speurtochtId = req.body.speurtochtId;
   const vragenForm = req.body.vragenForm;
   const antwoorden = req.body.antwoorden;
   const correcteAntwoord = req.body.correcteAntwoord;
 
   const speurtocht = new SpeurtochtModel({
-    speurtochtId: speurtochtId,
     vragenForm: vragenForm,
     antwoorden: antwoorden,
     correcteAntwoord: correcteAntwoord,
@@ -36,6 +33,16 @@ app.post('/insert', async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+});
+
+app.get('/read', async (req, res) => {
+
+  SpeurtochtModel.find({}, (err, result) => {
+    if (err) {
+      res.send(err)
+    }
+    res.send(result);
+  })
 });
 
 app.listen(3001, () => {
