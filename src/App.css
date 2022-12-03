@@ -39,3 +39,21 @@ button {
 .title {
   margin-top: 30px;
 }
+
+.container {
+  border: solid black 1px;
+  border-radius: 2px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.btnDelete{
+  padding: 10px;
+  margin-top: 30px;
+  background-color: rgb(239, 15, 37);
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+}

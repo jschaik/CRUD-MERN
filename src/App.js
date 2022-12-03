@@ -57,11 +57,11 @@ function App() {
         <h2 className="title"> Vragen overzicht </h2>
         {questionList.map((val, key) => {
           return (
-            <div>
+            <div className='container'>
               <h3>{val.vragenForm}</h3>
               <p>{val.antwoorden}</p>
               <p>{val.correcteAntwoord}</p>
-              <br />
+              <button className='btnDelete'>Delete</button>
              
             </div> 
           );
