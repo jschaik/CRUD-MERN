@@ -6,7 +6,7 @@ const app = express();
 const SpeurtochtModel = require('./models/Speurtocht');
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 mongoose.connect(
   'mongodb+srv://jsonschaik:psw1234@crud.lt8zbt4.mongodb.net/speurtocht?retryWrites=true&w=majority',
@@ -28,21 +28,25 @@ app.post('/insert', async (req, res) => {
 
   try {
     await speurtocht.save();
-    res.send("inserted data")
-    
+    res.send('inserted data');
   } catch (err) {
     console.log(err);
   }
 });
 
 app.get('/read', async (req, res) => {
-
   SpeurtochtModel.find({}, (err, result) => {
     if (err) {
-      res.send(err)
+      res.send(err);
     }
     res.send(result);
-  })
+  });
+});
+
+app.delete('/delete/:id', async (req, res) => {
+  const id = req.params.id;
+  await SpeurtochtModel.findByIdAndRemove(id).exec();
+  res.send('deleted')
 });
 
 app.listen(3001, () => {

@@ -24,6 +24,9 @@ function App() {
     });
   };
 
+  const deleteQuestion = (id) => {
+    Axios.delete(`http://localhost:3001/delete/${id}`, {});
+  };
   return (
     <div className="App">
       <h1 className="title">Speurtocht</h1>
@@ -57,13 +60,17 @@ function App() {
         <h2 className="title"> Vragen overzicht </h2>
         {questionList.map((val, key) => {
           return (
-            <div className='container'>
-              <h3>{val.vragenForm}</h3>
-              <p>{val.antwoorden}</p>
-              <p>{val.correcteAntwoord}</p>
-              <button className='btnDelete'>Delete</button>
-             
-            </div> 
+            <div className="container">
+              <p>Vraag: {val.vragenForm}</p>
+              <p>Antwoord: {val.antwoorden}</p>
+              <p>Correct antwoord: {val.correcteAntwoord}</p>
+              <button
+                className="btnDelete"
+                onClick={() => deleteQuestion(val._id)}
+              >
+                Delete
+              </button>
+            </div>
           );
         })}
       </form>

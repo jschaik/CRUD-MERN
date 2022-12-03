@@ -1,21 +1,19 @@
 const mongoose = require('mongoose');
 
 const SpeurtochtSchema = new mongoose.Schema({
-vragenForm: {
+  vragenForm: {
     type: String,
     require: true,
-},
-antwoorden: {
+  },
+  antwoorden: {
     type: String,
     require: true,
-},
-correcteAntwoord: {
+  },
+  correcteAntwoord: {
     type: String,
     require: true,
-},
-
+  },
 });
 
 const Speurtocht = mongoose.model('SpeurtochtData', SpeurtochtSchema);
 module.exports = Speurtocht;
-
