@@ -15,8 +15,7 @@ function App() {
     });
   }, []);
 
-  const addQuestions = (e) => {
-    e.preventDefault();
+  const addQuestions = () => {
     Axios.post('http://localhost:3001/insert', {
       vragenForm: vraag,
       antwoorden: antwoord,
